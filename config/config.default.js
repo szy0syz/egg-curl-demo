@@ -9,5 +9,13 @@ module.exports = appInfo => {
   // add your config here
   config.middleware = [];
 
+  config.view = {
+    mapping: {
+      '.html': 'ejs',
+    },
+  };
+
+  config.api = 'http://www.phonegap100.com/';
+
   return config;
 };
