@@ -10,7 +10,7 @@
     <h2>新闻列表</h2>
     <ul>
         <%for(var i=0;i < list.length; i++){%>
-        <li><a href="/news/<%=list[i].aid%>"><%=list[i].title%></a></li>
+        <li><a href="/news/<%=list[i].aid%>"><%=list[i].title%></a> &nbsp; ---- &nbsp; <span><%=helper.formatDate(list[i].dateline)%></span></li>
         <%}%>
     </ul>
 </body>
