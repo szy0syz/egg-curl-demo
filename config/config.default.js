@@ -7,7 +7,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1546183391338_7716';
 
   // 配置 需要运行的 中间件
-  config.middleware = [ 'printDate', 'forBindIPs' ];
+  config.middleware = [ 'printDate', 'forBindIPs', 'csrf' ];
 
   // 为 printDate 传递参数
   config.printDate = {
