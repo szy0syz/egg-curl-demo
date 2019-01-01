@@ -35,6 +35,8 @@ module.exports = appInfo => {
 
   // 为 printDate 传递参数
   config.printDate = {
+    enable: true, // 框架中间件通用配置：是否启用
+    match: '/news',
     name: 'jerrys',
   };
 
