@@ -7,7 +7,7 @@ class CookieController extends Controller {
     const username = this.ctx.cookies.get('username', {
       encrypt: true,
     });
-
+    // jsonp: ;jerry({"success":false,"message":"cookie is null"});
     if (username) {
       this.ctx.body = {
         success: true,
