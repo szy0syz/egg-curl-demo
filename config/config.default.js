@@ -7,7 +7,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1546183391338_7716';
 
   // 配置 需要运行的 中间件
-  config.middleware = [ 'compress', 'jsonp', 'printDate', 'forBindIPs', 'csrf' ];
+  config.middleware = [ 'compress', 'jsonp', 'printDate', 'forBindIPs', 'csrf', 'admin' ];
 
   config.compress = {
     threshold: 1024, // 支持指定只有 body 大于 1kb 时才启用gzip压缩
@@ -31,6 +31,11 @@ module.exports = appInfo => {
     mapping: {
       '.html': 'ejs',
     },
+  };
+
+  config.admin = {
+    enable: true,
+    match: '/admin',
   };
 
   // 为 printDate 传递参数

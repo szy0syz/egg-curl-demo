@@ -7,6 +7,10 @@ class HomeController extends Controller {
     this.app.test('application extend: ', 'test');
     console.log('context extend: ', this.ctx.jwt());
 
+    await this.ctx.render('index');
+  }
+
+  async loginIn() {
     this.ctx.cookies.set('username', 'jerry_shi_你好', {
       maxAge: 1000 * 60 * 60 * 24,
       httpOnly: true, // 不允许前端使用js访问
@@ -15,8 +19,16 @@ class HomeController extends Controller {
     });
 
     this.ctx.session.userAge = 28;
+    this.ctx.session.userinfo = {
+      username: 'jerry_shi',
+      userage: 18,
+      role: 'admin',
+    };
 
-    await this.ctx.render('index');
+    this.ctx.body = {
+      success: true,
+      message: '登录成功',
+    };
   }
 
   async loginOut() {
