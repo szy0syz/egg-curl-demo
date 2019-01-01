@@ -1,13 +1,29 @@
 'use strict';
 
-const Controller = require('egg').Controller;
+// const Controller = require('egg').Controller;
+const BaseController = require('../core/base');
 
-class HomeController extends Controller {
+class HomeController extends BaseController {
   async index() {
     this.app.test('application extend: ', 'test');
     console.log('context extend: ', this.ctx.jwt());
 
     await this.ctx.render('index');
+  }
+
+  async login() {
+    await this.ctx.render('login');
+  }
+
+  async handleLogin() {
+    const { username, password } = this.ctx.request.body;
+    if (username === 'jerry' && password === '4444') {
+      console.log('*[info]: 登录成功');
+      await this.success();
+    } else {
+      console.log('*[warnning]: 登录失败');
+      await this.error();
+    }
   }
 
   async loginIn() {

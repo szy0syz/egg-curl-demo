@@ -8,6 +8,8 @@ module.exports = app => {
   const auth = app.middleware.auth({ title: 'auth middleware' });
 
   router.get('/', controller.home.index);
+  router.get('/login', controller.home.login);
+  router.post('/login', controller.home.handleLogin);
   router.get('/loginIn', controller.home.loginIn);
   router.get('/loginOut', controller.home.loginOut);
 
