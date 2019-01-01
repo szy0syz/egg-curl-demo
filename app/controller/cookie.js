@@ -8,10 +8,17 @@ class CookieController extends Controller {
       encrypt: true,
     });
 
-    this.ctx.body = {
-      success: true,
-      data: { username },
-    };
+    if (username) {
+      this.ctx.body = {
+        success: true,
+        data: { username },
+      };
+    } else {
+      this.ctx.body = {
+        success: false,
+        message: 'cookie is null',
+      };
+    }
   }
 }
 

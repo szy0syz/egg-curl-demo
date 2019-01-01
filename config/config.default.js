@@ -22,6 +22,15 @@ module.exports = appInfo => {
     ],
   };
 
+  // 设置 session 的全局配置
+  config.session = {
+    key: 'Jerry_Serv_SESS',
+    maxAge: 1000 * 60 * 10, // 10 mins
+    httpOnly: true,
+    encrypt: true,
+    renew: true, // 每次刷新页面 session 都会被延长 maxAge
+  };
+
   config.view = {
     mapping: {
       '.html': 'ejs',

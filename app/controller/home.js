@@ -14,7 +14,17 @@ class HomeController extends Controller {
       encrypt: true, // 是否加密，eggjs中只有cookie加密后才能中文赋值，否则报错。
     });
 
+    this.ctx.session.userAge = 28;
+
     await this.ctx.render('index');
+  }
+
+  async loginOut() {
+    this.ctx.cookies.set('username', null);
+    this.ctx.session.userAge = null;
+    console.log('清除cookie - username');
+    console.log('清除session - userAge');
+    this.ctx.redirect('/cookie');
   }
 }
 
